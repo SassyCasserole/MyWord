@@ -1,11 +1,12 @@
-from word_gen import generate_words
+from load_dictionary import get_dictionary
 from input import get_user_input
 from compare import compare_guess_with_actual
+import random
 
 if __name__ == '__main__':
-    words = generate_words()
-    actual = words[0]
-    print(actual)
+    words = get_dictionary('dictionary.txt')
+
+    actual = words[random.randint(0, len(words))]
     MAX_GUESSES = 5
     for i in range(0, MAX_GUESSES):
         user_input = get_user_input()
